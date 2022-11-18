@@ -5,11 +5,11 @@ public class Main {
 
         //Asks the user to input thier name for the player
         System.out.println("What is player1's name?: ");
-        //TO DO: Create Player 1
+        Player p1 = new Player(sc.nextLine());
 
         //Asks the user to input their name for the player.
         System.out.println("What is player2's name?: ");
-        //TO DO: Create Player 2
+        Player p2 = new Player(sc.nextLine());
 
         String again = "Literally any string";
         Player currentPlayer;
@@ -17,17 +17,21 @@ public class Main {
         //Runs the game
         while (!again.equals("q")){
             //Generates the game
-            //TO DO: Create "game"
-
-            //TO DO: Set the a random player as the current player
+            Game game = new Game(p1, p2);
+            if (Math.random() > 0.5) {
+                currentPlayer = p1;
+            } else {
+                currentPlayer = p2;
+            }
             
 
             game.setFirstPlayer(currentPlayer);
             //This is the loop in which the game will be played
             while(!game.isComplete()){
-               //TO DO
+                System.out.println(currentPlayer.getName() + " it is your turn");
+                currentPlayer.adjustScore(game.takePiece());
 
-               currentPlayer = game.getNextPlayer();
+                currentPlayer = game.getNextPlayer();
             }
             System.out.println(currentPlayer.getName()+ " Won!!");
             System.out.println(p1.getName() +" had removed "+ p1.getScore()+" pieces!");
@@ -37,5 +41,6 @@ public class Main {
             again = sc.nextLine();
         }
         System.out.println("Thank you for playing!");
+        sc.close();
     }
 }

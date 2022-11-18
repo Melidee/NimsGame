@@ -10,13 +10,12 @@ public class Player {
     }
 
     //TO DO
-    public void/*Change to appropriate data type, not void*/ getScore(){
-     
+    public int getScore(){
+        return score;
     }
     //TO DO
-    public void/*Change to appropriate data type, not void*/ getName(){
-
-      
+    public String getName(){
+        return name;
     }
 
     public void adjustScore(int x){
