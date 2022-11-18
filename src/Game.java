@@ -43,7 +43,7 @@ public class Game {
 
     // Checks whether or not the user's requested move is allowed or not.
     public boolean isLegal(int x) {
-        return (x > 0) && x <= (int) pieces / 2;
+        return (x > 0) && x <= Math.floorDiv(pieces, 2) || x == 1 && pieces == 1;
     }
 
     // DO NOT CHANGE
