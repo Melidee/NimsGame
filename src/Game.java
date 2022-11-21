@@ -10,7 +10,7 @@ public class Game {
     // Sets up the game with a random amount of pieces between 10 and 50
     // Sets up the players so they can be accessed
     public Game(Player p1, Player p2) {
-        pieces = (int) (Math.random() * 40) + 10;
+        pieces = (int) (Math.random() * 40) + 10; // offset of 10; range of 40
         this.p1 = p1;
         this.p2 = p2;
     }
@@ -30,15 +30,10 @@ public class Game {
         return take;
     }
 
-    public Player getNextPlayer(){
     //Changes which players turn it is and returns the current player.
-        if (currentPlayer.equals(p1)) {
-            currentPlayer = p2;
-            return p2;
-        } else {
-            currentPlayer = p1;
-            return p1;
-        }
+    public Player getNextPlayer() {
+        currentPlayer = currentPlayer == p1 ? p2 : p1; // ternary operator
+        return currentPlayer
     }
 
     // Checks whether or not the user's requested move is allowed or not.
@@ -46,13 +41,9 @@ public class Game {
         return (x > 0) && x <= Math.floorDiv(pieces, 2) || x == 1 && pieces == 1;
     }
 
-    // DO NOT CHANGE
+    // DO NOT CHANGE 
     public boolean isComplete() {
-
-        if (pieces == 0) {
-            return true;
-        }
-        return false;
+        return pieces == 0;
     }
 
     // DO NOT CHANGE
