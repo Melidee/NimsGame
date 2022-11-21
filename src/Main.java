@@ -11,19 +11,14 @@ public class Main {
         System.out.println("What is player2's name?: ");
         Player p2 = new Player(sc.nextLine());
 
-        String again = "Literally any string";
+        String again = "";
         Player currentPlayer;
         
         //Runs the game
         while (!again.equals("q")){
             //Generates the game
             Game game = new Game(p1, p2);
-            if (Math.random() > 0.5) {
-                currentPlayer = p1;
-            } else {
-                currentPlayer = p2;
-            }
-            
+            currentPlayer = Math.random() > 0.5 ? p1 : p2; // ternary operator   
 
             game.setFirstPlayer(currentPlayer);
             //This is the loop in which the game will be played
@@ -40,7 +35,7 @@ public class Main {
             System.out.println("Enter q to quit, enter anything else to play again.");
             again = sc.nextLine();
         }
-        System.out.println("Thank you for playing!");
+        System.out.println("Thank you for playing! :)");
         sc.close();
     }
 }
