@@ -19,6 +19,6 @@ public class Player {
     }
 
     public void adjustScore(int x){
-        score +=x;
+        score += x;
     }
 }
